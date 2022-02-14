@@ -1,4 +1,4 @@
-# modified xv6
+# Modified xv6
 
 ## Specification 1 Implementation
 
