@@ -119,31 +119,33 @@ struct proc
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
                                //*****************************
-  int crt_time;                // Time of creation
-  int end_time;                // Time of termination
-  int runtime;                 // Total runtime
-  // int niceness;                // niceness of process
-  // int static_priority;         // Static priority of process
-  // float dynamic_priority;      // Dynamic priority of process
-  // int curr_q;                  // current queue
-  // int change_q;                // change queue
-  // int level;                   // level of process
-  // int num_sched;               // number of times scheduled
-  // int enter_q;                 // time entered queue
-  //int q[MAX_Q];                // Queues
+  uint crt_time;               // Time of creation
+  uint end_time;               // Time of termination
+  uint runtime;                // Total runtime
+  uint run_time_pbs;
+  int niceness;                // niceness of process
+  int static_priority;         // Static priority of process
+  int curr_q;                  // current queue
+  int change_q;                // change queue
+  int level;                   // level of process
+  int num_sched;               // number of times scheduled
+  int enter_q;                 // time entered queue
+  int sleep_time;              // time sleeping
+  int q[MAX_Q];                // Queues
 };
 
-// struct queue
-// {
-//   int q_size;
-//   int q_head;
-//   int q_tail;
-//   struct proc *elem_array[NPROC + 1];
-// };
+struct queue
+{
+  int q_size;
+  int q_head;
+  int q_tail;
+  struct proc *elem_array[NPROC + 1];
+};
 
-// typedef struct queue queue;
-// void push_elem(queue *q, struct proc *p);
-// void pop_elem(queue *q);
-// struct proc *front(queue *q);
-// void erase(queue *q, int pid);
-// void aging_func();
+typedef struct queue queue;
+void push_elem(queue *q, struct proc *p);
+void pop_elem(queue *q);
+struct proc *front(queue *q);
+void erase(queue *q, int pid);
+void aging_func();
+int get_dynamic(int priority, int niceness);

@@ -57,6 +57,9 @@ endif
 ifeq ($(SCHEDULER), MLFQ)
     SCHEDULER_VAL = -D MLFQ
 endif
+ifeq ($(SCHEDULER), PBS)
+    SCHEDULER_VAL = -D PBS
+endif
 
 
 CC = $(TOOLPREFIX)gcc
@@ -143,6 +146,9 @@ UPROGS=\
 	$U/_wc\
 	$U/_zombie\
 	$U/_strace\
+	$U/_time\
+	$U/_schedulertest\
+	$U/_set_priority\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

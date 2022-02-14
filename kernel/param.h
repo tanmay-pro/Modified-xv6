@@ -12,6 +12,6 @@
 #define FSSIZE       1000  // size of file system in blocks
 #define MAXPATH      128   // maximum file path name
 // **********
-// #define MAX_Q 5     // Maximum number of queues
-// #define AGETICK 128 // Time to wait for an available queue
+#define MAX_Q 5     // Maximum number of queues
+#define AGETICK 128 // Time to wait for an available queue
 // ********

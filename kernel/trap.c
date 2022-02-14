@@ -163,7 +163,6 @@ void kerneltrap()
 #endif
   // if (which_dev == 2 && myproc() != 0 && myproc()->state == RUNNING)
   //   yield();
-
   // the yield() may have caused some traps to occur,
   // so restore trap registers for use by kernelvec.S's sepc instruction.
   w_sepc(sepc);
@@ -174,6 +173,7 @@ void clockintr()
 {
   acquire(&tickslock);
   ticks++;
+  update_time();
   wakeup(&ticks);
   release(&tickslock);
 }
