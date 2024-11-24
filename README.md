@@ -28,12 +28,12 @@
 
 - Extract the required values from the processes using the already defined values in structs of the processes and print in the procdump function.
 
-## Explain how the given can be exploited by a process
+### Explain how the given can be exploited by a process
 
 - A process can maintain its priority by surrendering just before it consumes all of the time available, preventing lower-priority processes from continuing.
 - On a single CPU, 5 sub processes (all spawn at the same time).
 
-## Performances of the scheduling algorithms using the given benchmark program {Including the performance comparison between the default and 3 implemented policies in the README by showing the average waiting and running times for processes}
+### Performances of the scheduling algorithms using the given benchmark program {Including the performance comparison between the default and 3 implemented policies in the README by showing the average waiting and running times for processes}
 
 | Scheduler | rtime | wtime |
 | :-------: | :---: | :---: |
